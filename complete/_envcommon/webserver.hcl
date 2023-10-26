@@ -1,9 +1,13 @@
+terraform {
+  source = "${local.base_source_url}"
+}
+
 locals {
     environment_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
 
     env = local.environment_vars.locals.environment
 
-    base_source_url = "git::git@github.com:hectorswiftline/terragrunt-infrastructure-modules-example.git//asg-elb-service"
+    base_source_url = "./../../../..//modules/asg-elb-service"
 }
 
 inputs = {
